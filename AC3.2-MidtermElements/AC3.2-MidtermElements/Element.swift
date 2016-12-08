@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 enum elementParseError: Error {
-    case response, name, number, symbol, weight, meltingPoint, boilingPoint, density, crust, discoveryYear
+    case response, name, number, symbol, weight, meltingPoint, boilingPoint, density, crust, discoveryYear, electrons
 }
 
 class Element {
@@ -21,6 +21,7 @@ class Element {
     let boilingPoint: Int
     let uiColor: UIColor
     let density: Double
+    let electrons: String
     
     
     let discoveryYear: String
@@ -35,7 +36,8 @@ class Element {
      },
      */
     
-    init(name: String, number: Int, symbol: String, weight: Float, meltingPoint: Int, boilingPoint: Int,   discoveryYear: String, uiColor: UIColor, density: Double) {
+    init(electrons: String, name: String, number: Int, symbol: String, weight: Float, meltingPoint: Int, boilingPoint: Int,   discoveryYear: String, uiColor: UIColor, density: Double) {
+        self.electrons = electrons
         self.name = name
         self.number = number
         self.symbol = symbol
@@ -87,9 +89,11 @@ class Element {
                         let density = 0.0
                         break
                 }
+                guard let electrons = element["electrons"] as? String
+                    else { throw elementParseError.electrons }
                 
                 
-                let validElement = Element(name: name,number: number, symbol: symbol, weight: weight, meltingPoint: meltingPoint, boilingPoint: boilingPoint, discoveryYear: discoveryYear, uiColor: UIColor(red:0.043, green:0.576 ,blue:0.588 , alpha:1.0), density: density)
+                        let validElement = Element(electrons: electrons, name: name,number: number, symbol: symbol, weight: weight, meltingPoint: meltingPoint, boilingPoint: boilingPoint, discoveryYear: discoveryYear, uiColor: UIColor(red:0.043, green:0.576 ,blue:0.588 , alpha:1.0), density: density)
                 elements?.append(validElement)
             }
             return elements

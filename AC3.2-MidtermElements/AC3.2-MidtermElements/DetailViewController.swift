@@ -11,6 +11,7 @@ import UIKit
 class DetailViewController: UIViewController {
     
 
+    @IBOutlet weak var electrons: UILabel!
     @IBOutlet weak var density: UILabel!
     @IBOutlet weak var discoveryYear: UILabel!
     @IBOutlet weak var boilingPoint: UILabel!
@@ -34,6 +35,7 @@ class DetailViewController: UIViewController {
             (element?.boilingPoint)! )
         discoveryYear.text = "Found: " + (element?.discoveryYear)!
         density.text = "Density: " + String(describing: (element?.density)!)
+        electrons.text = "Electrons: " + (element?.electrons)!
         name.textColor = element?.uiColor
         symbol.textColor = element?.uiColor
         weight.textColor = element?.uiColor
