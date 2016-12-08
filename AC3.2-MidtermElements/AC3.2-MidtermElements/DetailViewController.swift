@@ -11,6 +11,7 @@ import UIKit
 class DetailViewController: UIViewController {
     
 
+    @IBOutlet weak var discoveryYear: UILabel!
     @IBOutlet weak var boilingPoint: UILabel!
     @IBOutlet weak var meltingPoint: UILabel!
     @IBOutlet weak var weight: UILabel!
@@ -30,6 +31,7 @@ class DetailViewController: UIViewController {
         meltingPoint.text = String(describing: (element?.meltingPoint)! )
         boilingPoint.text = String(describing:
             (element?.boilingPoint)! )
+        discoveryYear.text = "Found: " + (element?.discoveryYear)!
         
     }
 
