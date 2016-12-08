@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 enum elementParseError: Error {
-    case response, name, number, symbol, weight, meltingPoint, boilingPoint, density, crust, discoveryYear, electrons
+    case response, name, number, symbol, weight, meltingPoint, boilingPoint, density, crust, discoveryYear, electrons, ionEnergy
 }
 
 class Element {
@@ -22,8 +22,7 @@ class Element {
     let uiColor: UIColor
     let density: Double
     let electrons: String
-    
-    
+    let ionEnergy: Double
     let discoveryYear: String
     
     /*
@@ -36,7 +35,8 @@ class Element {
      },
      */
     
-    init(electrons: String, name: String, number: Int, symbol: String, weight: Float, meltingPoint: Int, boilingPoint: Int,   discoveryYear: String, uiColor: UIColor, density: Double) {
+    init(electrons: String, name: String, number: Int, symbol: String, weight: Float, meltingPoint: Int, boilingPoint: Int,  ionEnergy: Double, discoveryYear: String, uiColor: UIColor, density: Double) {
+        self.ionEnergy = ionEnergy
         self.electrons = electrons
         self.name = name
         self.number = number
@@ -91,9 +91,10 @@ class Element {
                 }
                 guard let electrons = element["electrons"] as? String
                     else { throw elementParseError.electrons }
+                guard let ionEnergy = element["ion_energy"] as? Double
+                    else { throw elementParseError.discoveryYear }
                 
-                
-                        let validElement = Element(electrons: electrons, name: name,number: number, symbol: symbol, weight: weight, meltingPoint: meltingPoint, boilingPoint: boilingPoint, discoveryYear: discoveryYear, uiColor: UIColor(red:0.043, green:0.576 ,blue:0.588 , alpha:1.0), density: density)
+                let validElement = Element(electrons: electrons, name: name,number: number, symbol: symbol, weight: weight, meltingPoint: meltingPoint, boilingPoint: boilingPoint, ionEnergy: ionEnergy, discoveryYear: discoveryYear, uiColor: UIColor(red:0.043, green:0.576 ,blue:0.588 , alpha:1.0), density: density)
                 elements?.append(validElement)
             }
             return elements

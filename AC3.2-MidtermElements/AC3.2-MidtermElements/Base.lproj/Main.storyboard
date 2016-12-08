@@ -118,6 +118,11 @@
                                         <color key="textColor" red="1" green="0.37386085569999999" blue="0.37626743889999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nii-tX-gEr">
+                                        <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="20"/>
+                                        <color key="textColor" red="1" green="0.37386085569999999" blue="0.37626743889999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="DiscoveryYear" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NIf-XH-TO9">
@@ -148,6 +153,7 @@
                         <outlet property="discoveryYear" destination="NIf-XH-TO9" id="vfo-VA-pny"/>
                         <outlet property="electrons" destination="L3M-gR-7Xr" id="cnZ-By-YKH"/>
                         <outlet property="elementImageView" destination="NMz-zx-KoM" id="p5F-3z-N6T"/>
+                        <outlet property="ionEnergy" destination="nii-tX-gEr" id="vDS-Cv-Rfh"/>
                         <outlet property="meltingPoint" destination="LKy-Ap-Fd8" id="Kgs-s5-W6U"/>
                         <outlet property="name" destination="dJE-Uf-zaN" id="S19-kA-nvQ"/>
                         <outlet property="symbol" destination="e7I-vU-Kvp" id="Slt-G8-6kB"/>
