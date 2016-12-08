@@ -6,6 +6,7 @@
 //  Copyright © 2016 Evan. All rights reserved.
 //
 import Foundation
+import UIKit
 
 enum elementParseError: Error {
     case response, name, number, symbol, weight, meltingPoint, boilingPoint, density, crust, discoveryYear
@@ -18,6 +19,7 @@ class Element {
     let weight: Float
     let meltingPoint: Int
     let boilingPoint: Int
+    let uiColor: UIColor
     
 
     let discoveryYear: String
@@ -32,13 +34,14 @@ class Element {
      },
      */
     
-    init(name: String, number: Int, symbol: String, weight: Float, meltingPoint: Int, boilingPoint: Int,   discoveryYear: String) {
+    init(name: String, number: Int, symbol: String, weight: Float, meltingPoint: Int, boilingPoint: Int,   discoveryYear: String, uiColor: UIColor) {
         self.name = name
         self.number = number
         self.symbol = symbol
         self.weight = weight
         self.meltingPoint = meltingPoint
         self.boilingPoint = boilingPoint
+        self.uiColor = uiColor
       
         
         self.discoveryYear = discoveryYear
@@ -78,7 +81,7 @@ class Element {
                 }
                
                 
-                let validElement = Element(name: name,number: number, symbol: symbol, weight: weight, meltingPoint: meltingPoint, boilingPoint: boilingPoint, discoveryYear: discoveryYear)
+                let validElement = Element(name: name,number: number, symbol: symbol, weight: weight, meltingPoint: meltingPoint, boilingPoint: boilingPoint, discoveryYear: discoveryYear, uiColor: UIColor(red:0.043, green:0.576 ,blue:0.588 , alpha:1.0))
                 elements?.append(validElement)
             }
             return elements

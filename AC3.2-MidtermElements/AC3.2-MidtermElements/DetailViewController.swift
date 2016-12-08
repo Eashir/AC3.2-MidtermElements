@@ -33,6 +33,12 @@ class DetailViewController: UIViewController {
             (element?.boilingPoint)! )
         discoveryYear.text = "Found: " + (element?.discoveryYear)!
         
+        name.textColor = element?.uiColor
+        symbol.textColor = element?.uiColor
+        weight.textColor = element?.uiColor
+        meltingPoint.textColor = element?.uiColor
+        boilingPoint.textColor = element?.uiColor
+        
     }
 
    

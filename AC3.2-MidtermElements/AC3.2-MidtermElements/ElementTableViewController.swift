@@ -29,6 +29,32 @@ class ElementTableViewController: UITableViewController {
         }
 
     }
+    
+    func convertCIImageToCGImage(inputImage: CIImage) -> CGImage! {
+        let context = CIContext(options: nil)
+        if context != nil {
+            return context.createCGImage(inputImage, from: inputImage.extent)
+        }
+        return nil
+    }
+    
+    func getPixelColor(pos: CGPoint, uiImage: UIImage) -> UIColor {
+        
+        let ciImage = CIImage(image: uiImage)
+        let CGImage = convertCIImageToCGImage(inputImage: ciImage!)
+        
+        let pixelData = CGImage?.dataProvider!.data
+        let data: UnsafePointer<UInt8> = CFDataGetBytePtr(pixelData)
+        
+        let pixelInfo: Int = ((Int(uiImage.size.width) * Int(pos.y)) + Int(pos.x)) * 4
+        
+        let r = CGFloat(data[pixelInfo]) / CGFloat(255.0)
+        let g = CGFloat(data[pixelInfo + 1]) / CGFloat(255.0)
+        let b = CGFloat(data[pixelInfo + 2]) / CGFloat(255.0)
+        let a = CGFloat(data[pixelInfo + 3]) / CGFloat(255.0)
+        
+        return UIColor(red: r, green: g, blue: b, alpha: a)
+    }
 
     // MARK: - Table view data source
 
@@ -51,12 +77,19 @@ class ElementTableViewController: UITableViewController {
         cell.textLabel?.text = element.name
         cell.detailTextLabel?.text = element.symbol + "(\(String(element.number)))" + " \(String(element.weight))"
         
+        
+        var pixelColor = element.uiColor
         APIRequestManager.manager.getData("https://s3.amazonaws.com/ac3.2-elements/\(element.symbol)_200.png") { (data: Data?) in
             if let validData = data,
                 let validImage = UIImage(data: validData) {
+                // Getting a color value from validImage
+                var color = self.getPixelColor(pos: CGPoint(x: 150 , y: 150), uiImage: validImage)
+                pixelColor = color
                 DispatchQueue.main.async {
                     
                     cell.imageView?.image = validImage
+                    cell.textLabel?.textColor = pixelColor
+                    cell.detailTextLabel?.textColor = pixelColor
                     cell.setNeedsLayout()
                 }
             }
