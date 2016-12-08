@@ -20,10 +20,11 @@ class Element {
     let meltingPoint: Int
     let boilingPoint: Int
     let uiColor: UIColor
+    let density: Double
     
-
+    
     let discoveryYear: String
-
+    
     /*
      "density": 0.09,
      "crust_percent": 0.14,
@@ -34,7 +35,7 @@ class Element {
      },
      */
     
-    init(name: String, number: Int, symbol: String, weight: Float, meltingPoint: Int, boilingPoint: Int,   discoveryYear: String, uiColor: UIColor) {
+    init(name: String, number: Int, symbol: String, weight: Float, meltingPoint: Int, boilingPoint: Int,   discoveryYear: String, uiColor: UIColor, density: Double) {
         self.name = name
         self.number = number
         self.symbol = symbol
@@ -42,10 +43,11 @@ class Element {
         self.meltingPoint = meltingPoint
         self.boilingPoint = boilingPoint
         self.uiColor = uiColor
-      
+        self.density = density
+        
         
         self.discoveryYear = discoveryYear
- 
+        
     }
     
     static func getElements(from data: Data?) -> [Element]? {
@@ -74,14 +76,20 @@ class Element {
                         let boilingPoint = 0
                         break
                 }
-            
+                
                 guard let discoveryYear = element["discovery_year"] as? String
                     else {
                         throw elementParseError.discoveryYear
                 }
-               
                 
-                let validElement = Element(name: name,number: number, symbol: symbol, weight: weight, meltingPoint: meltingPoint, boilingPoint: boilingPoint, discoveryYear: discoveryYear, uiColor: UIColor(red:0.043, green:0.576 ,blue:0.588 , alpha:1.0))
+                guard  let density = element["density"] as? Double
+                    else {
+                        let density = 0.0
+                        break
+                }
+                
+                
+                let validElement = Element(name: name,number: number, symbol: symbol, weight: weight, meltingPoint: meltingPoint, boilingPoint: boilingPoint, discoveryYear: discoveryYear, uiColor: UIColor(red:0.043, green:0.576 ,blue:0.588 , alpha:1.0), density: density)
                 elements?.append(validElement)
             }
             return elements

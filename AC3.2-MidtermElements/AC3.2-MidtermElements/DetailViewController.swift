@@ -11,6 +11,7 @@ import UIKit
 class DetailViewController: UIViewController {
     
 
+    @IBOutlet weak var density: UILabel!
     @IBOutlet weak var discoveryYear: UILabel!
     @IBOutlet weak var boilingPoint: UILabel!
     @IBOutlet weak var meltingPoint: UILabel!
@@ -25,14 +26,14 @@ class DetailViewController: UIViewController {
         elementImageView.alpha = 0.4
         self.title = element?.name
        
-        name.text = element?.name
-        symbol.text = element?.symbol
-        weight.text = String(describing: (element?.weight)!)
-        meltingPoint.text = String(describing: (element?.meltingPoint)! )
-        boilingPoint.text = String(describing:
+        name.text = "Name: " + (element?.name)!
+        symbol.text = "Symbol: " + (element?.symbol)!
+        weight.text = "Weight: " + String(describing: (element?.weight)!)
+        meltingPoint.text = "MeltingPoint: " + String(describing: (element?.meltingPoint)! )
+        boilingPoint.text = "BoilingPoint: " + String(describing:
             (element?.boilingPoint)! )
         discoveryYear.text = "Found: " + (element?.discoveryYear)!
-        
+        density.text = "Density: " + String(describing: (element?.density)!)
         name.textColor = element?.uiColor
         symbol.textColor = element?.uiColor
         weight.textColor = element?.uiColor

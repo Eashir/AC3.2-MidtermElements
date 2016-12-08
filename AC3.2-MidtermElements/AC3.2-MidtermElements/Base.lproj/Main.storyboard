@@ -81,7 +81,7 @@
                                     <action selector="clickToPost:" destination="OPX-sH-RXY" eventType="touchUpInside" id="hZT-Vg-GfU"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="6Ay-z9-VC0">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="6Ay-z9-VC0">
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dJE-Uf-zaN">
                                         <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="20"/>
@@ -108,11 +108,16 @@
                                         <color key="textColor" red="1" green="0.37386085569999999" blue="0.37626743889999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o6E-Cq-Pl7">
+                                        <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="20"/>
+                                        <color key="textColor" red="1" green="0.37386085569999999" blue="0.37626743889999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="DiscoveryYear" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NIf-XH-TO9">
                                 <frame key="frameInset" minX="266" minY="375" width="109" height="21"/>
-                                <fontDescription key="fontDescription" name="EuphemiaUCAS-Italic" family="Euphemia UCAS" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="17"/>
                                 <color key="textColor" red="0.9898123417140634" green="1" blue="0.97764916974860183" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -125,16 +130,16 @@
                             <constraint firstItem="NMz-zx-KoM" firstAttribute="bottom" secondItem="td2-G9-V4m" secondAttribute="bottom" id="VOO-eS-fAG"/>
                             <constraint firstItem="NMz-zx-KoM" firstAttribute="leading" secondItem="H9T-qK-1Rl" secondAttribute="leading" id="dGg-3n-kZ9"/>
                             <constraint firstItem="NMz-zx-KoM" firstAttribute="top" secondItem="6ub-yN-rjH" secondAttribute="bottom" id="dye-2w-9yj"/>
-                            <constraint firstItem="PQ6-8M-gc1" firstAttribute="top" secondItem="6Ay-z9-VC0" secondAttribute="bottom" constant="153" id="fgA-xY-s1J"/>
+                            <constraint firstItem="PQ6-8M-gc1" firstAttribute="top" secondItem="6Ay-z9-VC0" secondAttribute="bottom" constant="50" id="fgA-xY-s1J"/>
                             <constraint firstAttribute="trailing" secondItem="NMz-zx-KoM" secondAttribute="trailing" id="jYW-EH-e8W"/>
                             <constraint firstItem="td2-G9-V4m" firstAttribute="leading" secondItem="H9T-qK-1Rl" secondAttribute="leading" constant="133" id="mte-Jq-iCH"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="6Ay-z9-VC0" secondAttribute="trailing" constant="57" id="nPQ-JZ-1y2"/>
                             <constraint firstItem="NIf-XH-TO9" firstAttribute="bottom" secondItem="NMz-zx-KoM" secondAttribute="bottom" id="unv-nW-CWd"/>
-                            <constraint firstItem="6Ay-z9-VC0" firstAttribute="leading" secondItem="H9T-qK-1Rl" secondAttribute="leading" constant="159" id="xxK-eR-pyD"/>
+                            <constraint firstItem="6Ay-z9-VC0" firstAttribute="leading" secondItem="H9T-qK-1Rl" secondAttribute="leading" constant="30" id="xxK-eR-pyD"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="boilingPoint" destination="yuP-2B-Dm7" id="BRu-Sx-5rU"/>
+                        <outlet property="density" destination="o6E-Cq-Pl7" id="abU-bg-ue1"/>
                         <outlet property="discoveryYear" destination="NIf-XH-TO9" id="vfo-VA-pny"/>
                         <outlet property="elementImageView" destination="NMz-zx-KoM" id="p5F-3z-N6T"/>
                         <outlet property="meltingPoint" destination="LKy-Ap-Fd8" id="Kgs-s5-W6U"/>
