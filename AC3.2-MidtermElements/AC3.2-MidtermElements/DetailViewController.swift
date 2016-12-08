@@ -31,8 +31,8 @@ class DetailViewController: UIViewController {
         meltingPoint.text = String(describing: (element?.meltingPoint)! )
         boilingPoint.text = String(describing:
             (element?.boilingPoint)! )
-        discoveryYear.text = String(describing:
-            (element?.discoveryYear)! )
+        discoveryYear.text =
+            element?.discoveryYear
         
     }
 

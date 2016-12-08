@@ -21,7 +21,7 @@ class Element {
     let boilingPoint: Int
     let density: Double
     let crust: Double
-    let discoveryYear: Int
+    let discoveryYear: String
     let group: Int
     let electrons: String
     let ionEnergy: Float
@@ -35,7 +35,7 @@ class Element {
      },
  */
     
-    init(name: String, number: Int, symbol: String, weight: Float, meltingPoint: Int, boilingPoint: Int, density: Double, crust: Double, discoveryYear: Int, group: Int, electrons: String, ionEnergy: Float) {
+    init(name: String, number: Int, symbol: String, weight: Float, meltingPoint: Int, boilingPoint: Int, density: Double, crust: Double, discoveryYear: String, group: Int, electrons: String, ionEnergy: Float) {
         self.name = name
         self.number = number
         self.symbol = symbol
@@ -79,11 +79,13 @@ class Element {
                 guard let density = element["density"] as? Double
                     else { throw elementParseError.density }
                 guard let crust = element["crust_percent"] as? Double
-                    else { throw elementParseError.meltingPoint }
-                guard let discoveryYear = element["dscovery_year"] as? Int
                     else {
-                        let discoveryYear = 0
+                        let crust = 0.0
                         break
+                    }
+                guard let discoveryYear = element["discovery_year"] as? String
+                    else {
+                        throw elementParseError.discoveryYear
                     }
                 guard let group = element["group"] as? Int
                     else { throw elementParseError.group }
